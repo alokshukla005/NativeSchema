@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+            xmlns:tns="http://TargetNamespace.com/ServiceName" targetNamespace="http://TargetNamespace.com/ServiceName"
+            elementFormDefault="qualified" attributeFormDefault="unqualified" nxsd:version="NXSD" nxsd:stream="chars"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:choice minOccurs="1" maxOccurs="unbounded" nxsd:choiceCondition="terminated" nxsd:terminatedBy=",">   
+        <xsd:element name="Header" nxsd:conditionValue="H">
+          <xsd:complexType>
+            <xsd:sequence>
+		   	  <xsd:element name="ExecutionDate" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" nxsd:quotedBy="&quot;" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Data" nxsd:conditionValue="D">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="EMPLOYEE_ID" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+		       <xsd:element name="FIRST_NAME" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="LAST_NAME" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="EMAIL" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="PHONE_NUMBER" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="HIRE_DATE" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="JOB_ID" type="xsd:int" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="SALARY" type="xsd:int" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>							   
+              <xsd:element name="COMMISSION_PCT" type="xsd:int" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="MANAGER_ID" type="xsd:int" nxsd:style="terminated" nxsd:terminatedBy=","
+                           nxsd:quotedBy="&quot;"/>
+              <xsd:element name="DEPARTMENT_ID" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}"
+                           nxsd:quotedBy="&quot;"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Trailer" nxsd:conditionValue="T">
+          <xsd:complexType>
+            <xsd:sequence>
+			<xsd:element name="Count" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="," nxsd:quotedBy="&quot;" />-->
+            <xsd:element name="SumOfSalary" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" nxsd:quotedBy="&quot;" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+ 
+</xsd:schema>
+
